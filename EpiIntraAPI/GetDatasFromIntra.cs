@@ -119,7 +119,6 @@ namespace EpiIntraAPI
 
         public string getPhoto()
         {
-            List<string> list = new List<string>();
             Uri uri = new Uri(url);
             HttpWebRequest request = WebRequest.CreateHttp(uri + "/photo?token=" + token);
             request.GetResponseAsync();
