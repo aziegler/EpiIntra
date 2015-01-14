@@ -116,5 +116,17 @@ namespace EpiIntraAPI
         {
             return alerts;
         }
+
+        public string getPhoto()
+        {
+            List<string> list = new List<string>();
+            Uri uri = new Uri(url);
+            HttpWebRequest request = WebRequest.CreateHttp(uri + "/photo?token=" + token);
+            request.GetResponseAsync();
+            WebResponse response = request.GetResponseAsync().Result;
+            string str = response.GetResponseStream().ToString();
+            JsonObject obj = JsonObject.Parse(str);
+            return (obj.GetNamedString("url"));
+        }
     }
 }
