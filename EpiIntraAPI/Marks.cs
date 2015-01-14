@@ -19,7 +19,7 @@ namespace EpiIntraAPI
             this.token = token;
         }
 
-        public List<Mark> getMessages()
+        public List<Mark> getMarks()
         {
             List<Mark> list = new List<Mark>();
             Uri uri = new Uri(url);
