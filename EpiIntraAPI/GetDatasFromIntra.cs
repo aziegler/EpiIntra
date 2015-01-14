@@ -46,6 +46,28 @@ namespace EpiIntraAPI
             alerts = new Alerts(this.url, token);
         }
 
+        /*
+         * Autre constucteur de notre fonction principale,
+         * on lui envoie le login de l'élève,
+         * ainsi que le mot de passe (en clair :'( )
+         * 
+         * @params login, password
+         */
+        public GetDataFromIntra(string login, string password)
+        {
+            this.login = login;
+            this.password = password;
+            // On récupère le token en forçant la récupération
+            getToken(true);
+            // On initialise l'api complétement grâce au token récupéré
+            infos = new Infos(this.url, token);
+            modules = new Modules(this.url, token);
+            projects = new Projects(this.url, token);
+            marks = new Marks(this.url, token);
+            messages = new Messages(this.url, token);
+            alerts = new Alerts(this.url, token);
+        }
+
         public void getToken(bool force)
         {
             if (token == null || force)
