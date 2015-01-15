@@ -33,6 +33,7 @@ namespace EpiIntraAPI
             {
                 JsonObject obj = JsonObject.Parse(jso[cpt].ToString());
                 list.Add(obj.GetNamedString("title", ""));
+                cpt++;
             }
             return (list);
         }
